@@ -1,7 +1,7 @@
 cryptogpg-skype
 ===============
 
-Encrypt via command line your message with GPG 
+Encrypt via command line your Skype messages with GPG 
 
 A message for readers...
 ===============
