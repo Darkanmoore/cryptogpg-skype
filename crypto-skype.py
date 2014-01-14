@@ -30,27 +30,37 @@
 from Skype4Py import Skype
 import sys
 import gnupg
+import os
 
+# Get the home user path
+GPGUserPathPubring = "%s/.gnupg/pubring.gpg" % os.path.expanduser("~")
+GPGUserPath = "%s/.gnupg" % os.path.expanduser("~")
+
+# Prepare Skype session
 client = Skype()
 client.Attach()
 
-gpg = gnupg.GPG(gnupghome='/home/simone/.gnupg')
-key_data = open('/home/simone/.gnupg/pubring.gpg').read()
+# Get the GPG key and read it
+gpg = gnupg.GPG(gnupghome=GPGUserPath)
+key_data = open(GPGUserPathPubring).read()
 import_result = gpg.import_keys(key_data)
 
 print 'Your name:', client.CurrentUser.FullName
 
 print '\n'
 
+# Check who is online
 for f in client.Friends:
     if f.OnlineStatus == 'ONLINE':
         print '\033[1;41m User: \033[1;m', f.FullName
         print 'Status: %s\n' % f.OnlineStatus
-        
+
+# Passing argument to command line        
 users = sys.argv[1]
 message = ' '.join(sys.argv[2:])
 encrypted_data = gpg.encrypt(message, 'smlb@riseup.net')
 client.SendMessage(users, encrypted_data)
 
+# Test print 
 print 'message: ', message
 print 'encrypted_string: ', encrypted_data
