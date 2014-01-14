@@ -14,5 +14,5 @@ Requires
 - pip
 
 All of those are avaible with pip.
-For Arch Linux there's Skype4Py in AUR: `skype4py
-<https://aur.archlinux.org/packages/skype4py/>`__.
+For Arch Linux there's Skype4Py in AUR: `skype4py`
+https://aur.archlinux.org/packages/skype4py
