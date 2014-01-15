@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 # Version:
-# - 0.1
+# - 0.01
 #
 # The MIT License (MIT)
 #
@@ -27,6 +27,21 @@
 # THE SOFTWARE.
 
 
+"""
+cryptogpg-skype
+
+    Version 0.01
+    
+    A simple script that let you send encrypted GPG message
+    everything in the shell
+    
+    ------- USAGE ------
+    
+    $ python2 crypto-skype.py [USER] [MESSAGE:]
+    
+"""
+    
+    
 from Skype4Py import Skype
 import sys
 import gnupg
